@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { InterestForm } from './components/InterestForm';
 import './App.css';
 

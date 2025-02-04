@@ -11,10 +11,10 @@ app.use(cors({
   }));
 app.use(express.json());
 
-// const pool = new Pool({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: { rejectUnauthorized: false }
-// });
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
+});
 
 // Test database connection
 pool.query('SELECT NOW()', (err, res) => {
