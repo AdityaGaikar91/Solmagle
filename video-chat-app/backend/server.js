@@ -16,10 +16,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
-});
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: { rejectUnauthorized: false }
+// });
 
 // Test database connection
 pool.query('SELECT NOW()', (err, res) => {
