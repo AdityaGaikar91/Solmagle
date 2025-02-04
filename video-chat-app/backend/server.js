@@ -5,16 +5,16 @@ const pool = require('./config/database');
 const app = express();
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'https://your-frontend-url.render.com',
+    origin: process.env.FRONTEND_URL || 'https://video-chat-backend-oe8b.onrender.com',
     methods: ['GET', 'POST'],
     credentials: true
   }));
 app.use(express.json());
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
-});
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: { rejectUnauthorized: false }
+// });
 
 // Test database connection
 pool.query('SELECT NOW()', (err, res) => {
