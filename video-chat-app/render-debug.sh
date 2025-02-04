@@ -12,3 +12,6 @@ npm --version
 
 echo "\nChecking backend server.js location:"
 find . -name "server.js"
+
+echo "\nChecking package.json contents:"
+cat package.json
