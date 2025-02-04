@@ -1,15 +1,29 @@
 const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
-
+const pool = require('./config/database');
 const app = express();
-app.use(cors());
+
+app.use(cors({
+    origin: process.env.FRONTEND_URL || 'https://your-frontend-url.render.com',
+    methods: ['GET', 'POST'],
+    credentials: true
+  }));
 app.use(express.json());
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
 });
+
+// Test database connection
+pool.query('SELECT NOW()', (err, res) => {
+    if (err) {
+      console.error('Error connecting to the database', err);
+    } else {
+      console.log('Database connected successfully');
+    }
+  });
 
 // Function to calculate cosine similarity
 function cosineSimilarity(vec1, vec2) {
