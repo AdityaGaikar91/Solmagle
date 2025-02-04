@@ -2,12 +2,8 @@ services:
   - type: web
     name: video-chat-backend
     env: node
-    buildCommand: npm install
+    buildCommand: npm install && npm run install:frontend && npm run build:frontend
     startCommand: node backend/server.js
     envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: video-chat-db
-          property: connectionString
       - key: NODE_ENV
         value: production

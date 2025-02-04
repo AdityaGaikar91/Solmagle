@@ -11,6 +11,11 @@ app.use(cors({
   }));
 app.use(express.json());
 
+// Your existing routes and middleware
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
