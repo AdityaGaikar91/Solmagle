@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { VideoRoom } from './components/VideoRoom';
 import { InterestForm } from './components/InterestForm';
 import { MatchingScreen } from './components/MatchingScreen';
+import './App.css';
 
-const App = () => {
+export default function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gray-100">
@@ -19,6 +20,4 @@ const App = () => {
       </div>
     </Router>
   );
-};
-
-export default App;
+}
